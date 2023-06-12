@@ -1,8 +1,15 @@
-from sqlalchemy import Column, Integer, Float, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, Float, String, DateTime, ForeignKey,create_engine, MetaData
 from sqlalchemy.orm import relationship, column_property
 from sqlalchemy.ext.declarative import declarative_base
+import os
+from dotenv import load_dotenv
 
 Base = declarative_base()
+
+
+
+load_dotenv()
+POSTGRE_URL = os.getenv('POSTGRE_URL')
 
 class Game(Base):
     __tablename__ = 'games'
@@ -86,4 +93,15 @@ class TeamStats(Base):
     pts = Column(Integer)
     plus_minus = Column(Float)
     
+class Cache(Base):
+    __tablename__ = 'cache'
+    user_query = Column(String(200), primary_key=True)
+    sql_response = Column(String)
+
+
+
+def create_tables(database_url):
+    engine = create_engine(database_url)
+    Base.metadata.create_all(engine)
+
 

@@ -1,9 +1,0 @@
-Error processing game ID 0012200003 at 2023-06-07 01:23:37.745937: 'GAME_ID'
-Error processing game ID 0012200003 at 2023-06-07 01:25:09.139144: 'GAME_ID'
-Error processing game ID 0012200003 at 2023-06-07 01:25:39.502834: 'OFFICIAL_NAME'
-Error processing game ID 0012200003 at 2023-06-07 01:26:27.399158: str() argument 'encoding' must be str, not DataFrame
-Error processing game ID 0012200003 at 2023-06-07 01:26:40.357224: 'OFFICIAL_NAME'
-Error processing game ID 0012200003 at 2023-06-07 01:26:53.869287: 'OFFICIAL_NAME'
-Error processing game ID 0012200003 at 2023-06-07 01:27:53.780766: 'OFFICIAL_NAME'
-Error processing game ID 0022200044 at 2023-06-07 01:32:17.235662: index 1 is out of bounds for axis 0 with size 1
-Error processing game ID 0022200044 at 2023-06-07 01:40:35.155603: name 'officials_df' is not defined

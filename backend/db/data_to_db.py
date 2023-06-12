@@ -4,8 +4,13 @@ from models import Base, Game, Official, PlayerStats, TeamStats
 import json
 import datetime
 import os
+from dotenv import load_dotenv
 
-engine = create_engine('postgresql:')
+
+load_dotenv()
+POSTGRE_URL = os.getenv('POSTGRE_URL')
+
+engine = create_engine(POSTGRE_URL)
 
 def log_message(message):
     with open('process.log', 'a') as log_file:

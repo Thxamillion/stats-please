@@ -37,7 +37,7 @@ from nba_api.stats.endpoints import leaguegamefinder
 
 
 
-# #missing games in console
+
 
 from nba_api.stats.endpoints import boxscoresummaryv2, leaguegamefinder
 import time
