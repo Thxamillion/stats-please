@@ -8,7 +8,7 @@ const DataTable = ({ data }) => {
   return (
     <TableContainer component={Paper} sx={{ maxWidth: 800, marginTop: '50px', marginX: 'auto' }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead style={{ color: "white", backgroundColor: '#3f50b5' }}>
           <TableRow>
             {columns.map(column => (
               <TableCell key={column}>
@@ -21,7 +21,8 @@ const DataTable = ({ data }) => {
           {data.map((row, index) => (
             <TableRow key={index}>
               {columns.map(column => (
-                <TableCell key={column}>
+                <TableCell key={column}
+                >
                   {row[column]}
                 </TableCell>
               ))}
@@ -81,7 +82,7 @@ const StatsTable = ({ data, sqlQuery }) => {
     return (
       <Box>
         <p>No results found</p>
-        <p>Sorry, I didn't understand your question. Here is my SQL query:</p>
+        <p>Sorry, I didn't understand your question. Please Provide feedback on the SQL query above:</p>
         <pre>{sqlQuery}</pre>
         <Box display="flex" justifyContent="center" alignItems="center" marginTop={2}>
           <Button variant="contained" color="primary" onClick={() => setFeedback('Looks correct')}>

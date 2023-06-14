@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 .setupTests.js
-
+/backend/demo.py
 # testing
 /coverage
 

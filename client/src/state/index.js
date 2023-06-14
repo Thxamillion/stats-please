@@ -1,15 +1,19 @@
-// state/index.js
 import { createSlice, configureStore } from '@reduxjs/toolkit'
 
 const querySlice = createSlice({
   name: 'query',
-  initialState: '',
+  initialState: { query: '', loading: false },
   reducers: {
-    setQuery: (state, action) => action.payload
+    setQuery: (state, action) => {
+      state.query = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    }
   }
 })
 
-export const { setQuery } = querySlice.actions
+export const { setQuery, setLoading } = querySlice.actions
 
 const store = configureStore({
   reducer: {

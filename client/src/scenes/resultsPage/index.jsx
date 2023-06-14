@@ -8,8 +8,7 @@ import Billboard from '../../components/billboard';
 
 const ResultPage = () => {
     const [results, setResults] = useState([]);
-    const [encodedSQLQuery, setEncodedSQLQuery] = useState('');
-    const sqlQuery = useSelector(state => state.query);  
+    const [sqlQuery, setSQLQuery] = useState("");
     const { user_query } = useParams();
     const query = user_query.replace(/_/g, ' ');
     
@@ -19,6 +18,7 @@ const ResultPage = () => {
                 let finalEncodedSQLQuery = '';
 
                 if (sqlQuery) {
+                    console.log(sqlQuery)
                     finalEncodedSQLQuery = encodeURIComponent(sqlQuery.substring(sqlQuery.indexOf("SELECT")));
                 } else {
                     const response = await fetch('http://localhost:5000/api/query', {
@@ -36,6 +36,8 @@ const ResultPage = () => {
                         const responseText = data.query;
                         const extractedQuery = responseText.substring(responseText.indexOf("SELECT"));
                         finalEncodedSQLQuery = encodeURIComponent(extractedQuery);
+
+                        setSQLQuery(extractedQuery);
                     }
                 }
 
