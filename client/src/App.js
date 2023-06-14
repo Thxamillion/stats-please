@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import HomePage from './scenes/homePage';
+import ResultPage from './scenes/resultsPage';
+import store from './state/index.js'
 
 function App() {
-  const [query, setQuery] = useState("");
-  const [sqlQuery, setSqlQuery] = useState("");
+  
 
-  const getQuery = async () => {
-    const response = await axios.post('http://localhost:5000/api/query', { query: query });
-    setSqlQuery(response.data.query);
-    console.log(sqlQuery)
-  }
+  return <div className='app'>
+    <Provider store={store}>
+    <BrowserRouter>
+    <Routes>
+      
+        
+        <Route path="/ask" 
+        element={<HomePage/>} />
+        <Route path="/ask/:user_query" 
+        element={<ResultPage/>} />
 
-  return (
-    <div className="App">
-      <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
-      <button onClick={getQuery}>Generate SQL Query</button>
-      {sqlQuery && <p>{sqlQuery}</p>}
+    </Routes>
+    </BrowserRouter>
+    </Provider>
     </div>
-  );
 }
 
 export default App;
